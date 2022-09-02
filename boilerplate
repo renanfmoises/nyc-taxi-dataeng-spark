@@ -1,0 +1,9 @@
+MASTER_URL="spark://mpb-m1max.local:7077"
+PY_SCRIPT="pyspark-spark-submit-run.py"
+
+spark-submit \
+    --master $MASTER_URL \
+    jobs/$PY_SCRIPT \
+        --input_green_path="data/part/green/*/*" \
+        --input_yellow_path="data/part/yellow/*/*" \
+        --output_path="data/reports/revenue/tripdata_all/spark-submit"
