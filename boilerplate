@@ -1,3 +1,4 @@
+# Boilerplate for creating a local spark submit job
 MASTER_URL="spark://mpb-m1max.local:7077"
 PY_SCRIPT="pyspark-spark-submit-run.py"
 
@@ -7,3 +8,18 @@ spark-submit \
         --input_green_path="data/part/green/*/*" \
         --input_yellow_path="data/part/yellow/*/*" \
         --output_path="data/reports/revenue/tripdata_all/spark-submit"
+
+# Args for running the script on the cloud
+--input_green_path=gs://data_lake_nyc-taxi-359621/part/green/*/*
+--input_yellow_path=gs://data_lake_nyc-taxi-359621/part/yellow/*/*
+--output_path=gs://data_lake_nyc-taxi-359621/reports/revenue/tripdata_all/dataproc/
+
+# Boilerplate for gcloud dataproc
+gcloud dataproc jobs submit pyspark \
+    --cluster=nyc-taxi-pyspark-dataproc-cluster \
+    gs://data_lake_nyc-taxi-359621/code/pyspark-spark-submit-run.py \
+    --region=southamerica-east1 \
+    -- \
+        --input_green_path="gs://data_lake_nyc-taxi-359621/part/green/*/*/" \
+        --input_yellow_path="gs://data_lake_nyc-taxi-359621/part/yellow/*/*/" \
+        --output_path="gs://data_lake_nyc-taxi-359621/reports/revenue/tripdata_all/dataproc/"
