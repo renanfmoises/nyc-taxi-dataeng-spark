@@ -1,6 +1,9 @@
 # Project specific
 /data
+terraform/*
+!terraform/main.tf
 schemas.py
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
