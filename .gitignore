@@ -1,7 +1,7 @@
 # Project specific
 /data
 terraform/*
-!terraform/main.tf
+!terraform/*.tf
 schemas.py
 
 
