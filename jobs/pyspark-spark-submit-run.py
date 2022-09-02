@@ -8,8 +8,8 @@ from pyspark.sql import SparkSession
 from pyspark.sql import functions as F
 
 
-CREDS_PATH = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
-SPARK_HOME = os.getenv("SPARK_HOME")
+# CREDS_PATH = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
+# SPARK_HOME = os.getenv("SPARK_HOME")
 
 parser = argparse.ArgumentParser()
 
